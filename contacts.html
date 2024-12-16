@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: rgb(17, 17, 17);
+            height: 100%;
+            box-sizing: border-box;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            width: 100%;
+            background-color: #dc1e23;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #dc1e23;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu a {
+            margin: 10px 0;
+        }
+
+        .about-container img {
+            max-height: 45px;
+            width: auto;
+            margin-top: 10px;
+            margin-left: 8px;
+            margin-right: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 120px 20px 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-top: 50px;
+            margin-bottom: 70px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 0 10px #000000;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            padding: 0;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1900px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1 1 300px;
+            max-width: 500px;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            margin-bottom: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover, .contact-form:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-info h2, .contact-form h2 {
+            color: #ff0000;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ff0000;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffbebe;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            margin-bottom: 25px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #ff0000;
+            background-color: #000;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #ffbebe;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 20px;
+            padding: 20px;
+            background-color: #d90000;
+            color: #fff;
+        }
+
+        footer a {
+            color: #b6b6b6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .contact-container {
+                gap: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            form input, form textarea, form button {
+                font-size: 0.9rem;
+            }
+
+            .social-icons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                width: 30px;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .contact-info, .contact-form {
+                padding: 15px;
+                border-width: 1px;
+            }
+
+            form input, form textarea {
+                padding: 8px;
+            }
+
+            form button {
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Rookies Logo">
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="feature.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="contacts.html">Contacts</a>
+            <div class="about-container">
+                <a href="login-page.html">
+                    <img src="about-icon.png" alt="About Icon">
+                </a>
+            </div>
+        </nav>      
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="Homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="feature.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="contacts.html">Contacts</a>
+        </div>
+    </header>
+
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p><strong>Email:</strong> rookiesanimationstudio@gmail.com</p>
+                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                <p><strong>Address:</strong> 123 Animation Street, Creative City</p>
+                <p>Follow us on social media!</p>
+                <div class="social-icons">
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form method="POST" onsubmit="return validateForm()">
+                    <h2>Send Us a Message!</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+    </section>
+
+    <footer>
+        &copy; 2024 Rookies Animation Studio. All rights reserved. <a href="mailto:rookiesanimationstudio@gmail.com?subject=Inquiry">Contact Us</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+
+<script>
+    function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+            alert("All fields are required!");
+            return false;
+        }
+
+        // Simulate redirection for client-side setup
+        window.location.href = "email confirmation.html";
+        return false;
+    }
+</script>
+
+</body>
+</html>

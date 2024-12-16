@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
+            color: #fff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #dc1e23;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-left: 20px; 
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .about-container img {
+            max-height: 45px;
+            width: auto;
+            margin-top: 10px;
+            margin-left: 8px;
+            margin-right: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-container:hover img {
+            transform: scale(1.1); 
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu.active {
+            display: block;
+            flex-direction: column;
+            background: #dc1e23;
+            position: absolute;
+            top: 60px;
+            width: 100%;
+            left: 0;
+            padding: 10px 0;
+        }
+
+        .showcase {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .showcase h1 {
+            font-size: 5em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .showcase p {
+            font-size: 1.2em;
+            margin-top: 13px;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: normal;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .poster {
+            background-color: #dc1e23;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .poster img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 5px;
+        }
+
+        .poster:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background-color: #dc1e23;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 20px;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Rookies Logo"> 
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="feature.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="contacts.html">Contacts</a>
+            <div class="about-container">
+                <a href="login page.html">
+                    <img src="about-icon.png" alt="About Icon">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="showcase">
+        <h1>Projects Showcase</h1>
+        <p>ROOKIES' commitment to creating captivating stories that resonate with audiences of all ages is embodied in our crafted pieces and compositions. View some of our proud creations in this gallery of artworks. </p>
+
+        <div class="grid-container">
+            <div class="poster">
+                <img src="poster1.jpg" alt="Poster 1">
+                <h2>Tennis Poster</h2>
+                <p>The U.S. Tennis League</p>
+            </div>
+            <div class="poster">
+                <img src="poster2.jpg" alt="Poster 2">
+                <h2>Colourpop Theme</h2>
+                <p>Mario and Friends Goes Pop!</p>
+            </div>
+            <div class="poster">
+                <img src="poster3.jpeg" alt="Poster 3">
+                <h2>Animation Poster</h2>
+                <p>Lightfall</p>
+            </div>
+            <div class="poster">
+                <img src="poster4.jpg" alt="Poster 4">
+                <h2>Project Poster</h2>
+                <p>The Summer We Shared</p>
+            </div>
+            <div class="poster">
+                <img src="poster5.jpg" alt="Poster 5">
+                <h2>Graphic Illustration</h2>
+                <p>Miku's Conference: Your Favorite Dessert?</p>
+            </div>
+            <div class="poster">
+                <img src="poster6.jpg" alt="Poster 6">
+                <h2>Cybercore Theme</h2>
+                <p>Renz and the Cybercolors</p>
+            </div>
+            <div class="poster">
+                <img src="poster7.jpg" alt="Poster 7">
+                <h2>3D Poster</h2>
+                <p>A Day with Powepuff Girls</p>
+            </div>
+            <div class="poster">
+                <img src="poster8.jpg" alt="Poster 8">
+                <h2>Graphic Illustration</h2>
+                <p>It's a Black Cat's World!</p>
+            </div>
+            <div class="poster">
+                <img src="poster9.png" alt="Poster 9">
+                <h2>Movie Poster</h2>
+                <p>Friday the 13th</p>
+            </div>
+            <div class="poster">
+                <img src="poster10.png" alt="Poster 10">
+                <h2>Promotional Poster</h2>
+                <p>Shop in Sale</p>
+            </div>
+            <div class="poster">
+                <img src="poster11.png" alt="Poster 11">
+                <h2>Sports Advertisement</h2>
+                <p>AFL Finals Game</p>
+            </div>
+            <div class="poster">
+                <img src="poster12.jpeg" alt="Poster 12">
+                <h2>Cute Illustration</h2>
+                <p>Cherry on the Cake!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 ROOKIES Animation Studio. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
